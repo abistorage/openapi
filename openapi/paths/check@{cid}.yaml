@@ -1,0 +1,25 @@
+get:
+  tags:
+    - ABI Storage
+  summary: Check if a CID of an ABI is being stored by abi.storage.
+  description: Includes the IPFS pinning state and the Filecoin deal state.
+  operationId: check
+  security: []
+  parameters:
+    - name: cid
+      in: path
+      description: CID for the ABI
+      required: true
+      schema:
+        $ref: ../components/schemas/CID.yaml
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CheckResponse.yaml
+    '404':
+      $ref: ../components/responses/notFound.yaml
+    5XX:
+      $ref: ../components/responses/internalServerError.yaml

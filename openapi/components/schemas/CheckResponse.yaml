@@ -1,0 +1,16 @@
+type: object
+properties:
+  ok:
+    type: boolean
+    default: true
+  value:
+    type: object
+    properties:
+      cid:
+        $ref: ./CID.yaml
+      pin:
+        $ref: ./Pin.yaml
+      deals:
+        type: array
+        items:
+          $ref: ./Deal.yaml

@@ -1,0 +1,8 @@
+type: object
+properties:
+  ok:
+    type: boolean
+    default: true
+  value:
+    type: object
+    $ref: ./ABI.yaml

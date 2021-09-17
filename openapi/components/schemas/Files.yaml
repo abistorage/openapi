@@ -1,0 +1,11 @@
+description: Files in the directory (only if this ABI is a directory).
+type: array
+items:
+  type: object
+  properties:
+    name:
+      type: string
+      example: logo.jpg
+    type:
+      type: string
+      example: image/jpeg

@@ -1,0 +1,16 @@
+type: object
+properties:
+  cid:
+    $ref: ./CID.yaml
+  name:
+    type: string
+    example: pin name
+  meta:
+    type: object
+  status:
+    $ref: ./PinStatus.yaml
+  created:
+    $ref: ./Date.yaml
+  size:
+    type: number
+    example: 132614

@@ -1,0 +1,31 @@
+type: object
+properties:
+  cid:
+    $ref: ./CID.yaml
+  size:
+    description: Size in bytes of the ABI data.
+    type: number
+    default: 132614
+  created:
+    $ref: ./Date.yaml
+  type:
+    type: string
+    enum:
+      - directory
+      - image/jpeg
+      - application/json
+      - other mime types
+    example: image/jpeg
+    description: MIME type of the upload file or 'directory' when uploading multiple files.
+  scope:
+    description: Name of the JWT token used to create this ABI.
+    type: string
+    default: default
+  pin:
+    $ref: ./Pin.yaml
+  files:
+    $ref: ./Files.yaml
+  deals:
+    type: array
+    items:
+      $ref: ./Deal.yaml

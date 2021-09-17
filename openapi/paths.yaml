@@ -1,0 +1,21 @@
+get:
+  tags:
+    - ABI Storage
+  summary: List all stored files
+  operationId: list
+  parameters:
+    - $ref: '#/components/parameters/before'
+    - $ref: '#/components/parameters/limit'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ListResponse'
+    '401':
+      $ref: '#/components/responses/unauthorized'
+    '403':
+      $ref: '#/components/responses/forbidden'
+    5XX:
+      $ref: '#/components/responses/internalServerError'

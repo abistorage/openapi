@@ -1,0 +1,5 @@
+type: string
+example: bafkreidivzimqfqtoqxkrpge6bjyhlvxqs3rhe73owtmdulaxr5do5in7u
+description: >-
+  Self-describing content-addressed identifiers for distributed systems. Check
+  [spec](https://github.com/multiformats/cid) for more info.

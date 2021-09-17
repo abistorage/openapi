@@ -1,0 +1,8 @@
+description: Return results created before provided timestamp
+name: before
+in: query
+required: false
+schema:
+  type: string
+  format: date-time
+example: '2020-07-27T17:32:28Z'

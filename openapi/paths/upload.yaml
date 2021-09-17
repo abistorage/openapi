@@ -1,0 +1,66 @@
+post:
+  tags:
+    - ABI Storage
+  summary: Store a file
+  description: >
+    Store a file with abi.storage.
+
+    You can upload either a single file or multiple files in a directory
+
+
+    Send the POST request with one of:
+
+    - a single file as a single Blob/File Object as the body
+
+    - multiple files as FormData with `Content-Disposition` headers for each
+    part to specify filenames and the request header `Content-Type:
+    multipart/form-data`.
+
+
+    You can also upload a Content Addressed Archive (CAR) file, by setting the
+    request body as a single CAR Blob/File object and providing the request
+    header `Content-Type: application/car`
+
+    Providing a CAR file allows you to pre-compute the root CID for 1 or more
+    files, ensures that the abi.storage will store and provide your assets with
+    the same CID.
+  operationId: store
+  requestBody:
+    required: true
+    content:
+      image/*:
+        schema:
+          type: string
+          format: binary
+      application/car:
+        schema:
+          type: string
+          format: binary
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: array
+              items:
+                type: string
+                format: binary
+      '*/*':
+        schema:
+          type: string
+          format: binary
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/UploadResponse.yaml
+    '400':
+      $ref: ../components/responses/badRequest.yaml
+    '401':
+      $ref: ../components/responses/unauthorized.yaml
+    '403':
+      $ref: ../components/responses/forbidden.yaml
+    5XX:
+      $ref: ../components/responses/internalServerError.yaml
